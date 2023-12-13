@@ -12,7 +12,9 @@ local function hotSprite(path)
 
         LifeChangedMessageCommand=function(self, params)
 
-            if not params.LifeMeter then return end
+            local isPlayer = params.Player:match(playerName)
+
+            if not params.LifeMeter or not isPlayer then return end
 
             local lifeMeter = params.LifeMeter
 
@@ -44,7 +46,9 @@ local t = Def.ActorFrame{
 
     OnCommand=function(self)
 
-        local p = SCREENMAN:GetTopScreen():GetChild(playerName)
+        local p = SCREENMAN:GetTopScreen():GetChild( "Player" .. playerName )
+
+        if not p then self:RemoveAllChildren() return end
 
         if playerName:match("P1") then
 
@@ -62,7 +66,9 @@ local t = Def.ActorFrame{
 		Texture="1.png",
 		LifeChangedMessageCommand=function(self, params)
 
-            if not params.LifeMeter then return end
+            local isPlayer = params.Player:match(playerName)
+
+            if not params.LifeMeter or not isPlayer then return end
 
             local lifeMeter = params.LifeMeter
             local life = lifeMeter:GetLife()
@@ -125,6 +131,8 @@ for i = 1, n do
 
 		BounceCommand=function(self)
 
+            self.Bounce = true
+
             local offset = - ( i - 1 ) * 0.5 / ( n * 0.5 ) + 0.25
             local t = 0.125
             
@@ -162,7 +170,9 @@ for i = 1, n do
 
 			LifeChangedMessageCommand=function(self, params)
 
-                if not params.LifeMeter then return end
+                local isPlayer = params.Player:match(playerName)
+
+                if not params.LifeMeter or not isPlayer then return end    
 
                 local p = self:GetParent()
                 local unit = params.LifeMeter:GetLife() * 17
@@ -172,11 +182,13 @@ for i = 1, n do
 
                 if unit >= i then
 
-                    self:cropbottom(1);     p:queuecommand("Bounce")
+                    self:cropbottom(1)
+                    
+                    if not p.Bounce then p:queuecommand("Bounce") end
 
                 else
 
-                    p:stopeffect()
+                    p:stopeffect();     p.Bounce = false
 
                     if unit + 1 >= i then
 
