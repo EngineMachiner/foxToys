@@ -1,4 +1,6 @@
 
+local filterAlpha = 0.5
+
 local function show(self)
     self.wasDanger = true;      self:stoptweening():linear(0.25):diffusealpha(1)
 end
@@ -76,5 +78,10 @@ t[#t+1] = Def.ActorFrame{
     }
 
 }
+
+-- Filter.
+t[#t+1] = Def.Quad{
+    InitCommand=function(self) self:FullScreen():diffuse(Color.Black):diffusealpha(filterAlpha) end
+} 
 
 return Def.ActorFrame{ t }
