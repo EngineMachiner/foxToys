@@ -13,7 +13,7 @@ local function init(self) self.show = show;  self.hide = hide end
 
 local t = Def.ActorFrame{
 
-	InitCommand=function(self) init(self); self:diffusealpha(0) end,
+	InitCommand=function(self) init(self); self:diffusealpha(1) end,
 
 	HealthStateChangedMessageCommand=function(self, params)
 
@@ -28,8 +28,9 @@ local t = Def.ActorFrame{
 
 local s = Def.ActorFrame{ InitCommand=function(self) self:Center() end };     t[#t+1] = s
 
-local n1 = math.ceil( SCREEN_WIDTH / 128 )
-local n2 = math.ceil( SCREEN_HEIGHT / 128 )
+local size = 128 * 1.5
+local n1 = math.ceil( SCREEN_WIDTH / size )
+local n2 = math.ceil( SCREEN_HEIGHT / size )
 
 for i = 1, n1 + 1 do for j = 1, n2 + 1 do
 
@@ -38,7 +39,7 @@ for i = 1, n1 + 1 do for j = 1, n2 + 1 do
         InitCommand=function(self)
 
             self:SetTextureFiltering(false)
-            self:zoom(2):effectclock("beat"):SetAllStateDelays(0.25)
+            self:zoom(3):effectclock("beat"):SetAllStateDelays(0.125)
  
             local w, h = self:GetZoomedWidth(), self:GetZoomedHeight()
             
@@ -49,8 +50,6 @@ for i = 1, n1 + 1 do for j = 1, n2 + 1 do
 
             self:xy( i * w, j * h )
             
-            local n = ( i + j ) % self:GetNumStates();      self:setstate(n)
-
         end
     }
 
@@ -60,21 +59,23 @@ end end
 -- Title.
 t[#t+1] = Def.ActorFrame{
 
-    InitCommand=function(self) self:effectclock("beat"):set_tween_uses_effect_delta(true):queuecommand("Danger") end,
-    DangerCommand=function(self) self:linear(1):diffusealpha(1):linear(1):diffusealpha(0):queuecommand("Danger") end,
-
     Def.Quad{
         InitCommand=function(self)
-            self:Center():setsize( SCREEN_WIDTH, 128 + 8 ):diffuse( Color.Black )
+            self:Center():setsize( SCREEN_WIDTH, 128 - 16 ):diffuse( Color.Black )
         end
     },
 
     Def.Sprite{
+
         Texture="title 1x2.png",
         InitCommand=function(self)
             self:SetTextureFiltering(false)
-            self:Center():zoom(2):effectclock("beat"):SetAllStateDelays(2)
-        end
+            self:Center():zoom(3):effectclock("beat"):animate(false):SetAllStateDelays(4)
+            self:sleep(0.5):queuecommand("Animate")
+        end,
+
+        AnimateCommand=function(self) self:animate(true) end
+
     }
 
 }
@@ -84,4 +85,8 @@ t[#t+1] = Def.Quad{
     InitCommand=function(self) self:FullScreen():diffuse(Color.Black):diffusealpha(filterAlpha) end
 } 
 
-return Def.ActorFrame{ t }
+return Def.ActorFrame{
+    InitCommand=function(self) self:effectclock("beat"):set_tween_uses_effect_delta(true):queuecommand("Danger") end,
+    DangerCommand=function(self) self:sleep(2):diffusealpha(1):sleep(2):diffusealpha(0):queuecommand("Danger") end,
+    t
+}

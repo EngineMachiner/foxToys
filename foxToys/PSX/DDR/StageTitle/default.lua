@@ -9,41 +9,53 @@ local STAGES = {
     ['Stage_Final'] = 5
 }
 
+local function init(self) self:zoom(3):SetTextureFiltering(false):Center() end
+
 local function stageTitle()
 
     return Def.Sprite{
         Texture='1 1x7.png',
-        InitCommand=function(self) 
-            self:zoom(4):SetTextureFiltering(false):Center():animate(false)
-        end
+        InitCommand=function(self) init(self) self:animate(false) end
     }
 
 end
 
 return Def.ActorFrame {
 
-    stageTitle() .. {
-        OnCommand=function(self)
-            
-            self:y(offsetY)
+    Def.ActorFrame{
 
-            local stage = STATSMAN:GetCurStageStats():GetStage()
-            local state = STAGES[stage]
-            
-            if not state then self:GetParent():visible(false) return end
+        stageTitle() .. {
+            OnCommand=function(self)
+                
+                self:y(offsetY)
 
-            self:setstate(state)
+                local stage = STATSMAN:GetCurStageStats():GetStage()
+                local state = STAGES[stage]
+                
+                if not state then self:GetParent():visible(false) return end
 
-        end
+                self:setstate(state)
+
+            end
+        },
+
+        stageTitle() .. {
+            InitCommand=function(self)
+
+                local h = self:GetZoomedHeight()
+
+                self:y( offsetY + h ):setstate(6)
+
+            end
+        }
+
     },
 
-    stageTitle() .. {
+    Def.Sprite{
+        Condition=GAMESTATE:IsDemonstration(),
+        Texture='2.png',
         InitCommand=function(self)
-
-            local h = self:GetZoomedHeight()
-
-            self:y( offsetY + h ):setstate(6)
-
+            init(self)  self:y(offsetY)
         end
     }
 
