@@ -13,7 +13,7 @@ local function init(self) self.show = show;  self.hide = hide end
 
 local t = Def.ActorFrame{
 
-	InitCommand=function(self) init(self); self:diffusealpha(1) end,
+	InitCommand=function(self) init(self); self:diffusealpha(0) end,
 
 	HealthStateChangedMessageCommand=function(self, params)
 

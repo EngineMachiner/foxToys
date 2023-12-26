@@ -60,7 +60,7 @@ local function failedTitle()
 
 end
 
-local sleep1, sleep2 = 2.25, 1.625
+local sleep1, sleep2 = 2.25, 1
 
 local failed = Def.ActorFrame{
 
@@ -72,7 +72,7 @@ local failed = Def.ActorFrame{
         PlayerFailedMessageCommand=function(self) 
             self:diffusealpha(0):sleep( sleep1 + sleep2 )
             self:smooth(1):diffusealpha(1):sleep(1)
-            self:linear(2):diffusealpha(0):sleep(1)
+            self:smooth(1):diffusealpha(0):sleep(1)
         end
 
     }
@@ -89,9 +89,9 @@ for i = 1, 4 do
 
         EffectCommand=function(self)
             self:zoom( self:GetZoom() * 1.25 )
-            self:pulse():effectoffset( i / 8 ):effectperiod(1.5)
-            self:smooth(1):diffusealpha( 1 / 5 )
-            self:sleep(sleep2):smooth(1):diffusealpha(0)
+            self:pulse():effectoffset( i / 8 ):effectperiod(1.75)
+            self:smooth(0.5):diffusealpha( 1 / 5 )
+            self:sleep(sleep2):smooth(0.5):diffusealpha(0)
         end
 
     }

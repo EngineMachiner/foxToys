@@ -130,4 +130,4 @@ end end
 
 t[#t+1] = Def.Quad { InitCommand=function(self) self:diffuse( Color.Black ):FullScreen():MaskDest() end }
 
-return Def.ActorFrame{ t2 }
+return Def.ActorFrame{ t, t2 }
