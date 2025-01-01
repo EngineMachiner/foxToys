@@ -39,4 +39,4 @@ local title = Def.ActorFrame{
 
 }
 
-return Def.ActorFrame{ LoadModule( "foxToys/PSX/DDR/Stars/default.lua", 2 ),     title }
+return Def.ActorFrame{ foxToys.Load( "PSX/DDR/Stars", 2 ),     title }

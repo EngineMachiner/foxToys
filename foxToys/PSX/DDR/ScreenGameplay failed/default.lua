@@ -59,4 +59,4 @@ for i = 1, 4 do
 
 end
 
-return Def.ActorFrame{ LoadModule("foxToys/PSX/DDR/Stars/default.lua"),     title }
+return Def.ActorFrame{ foxToys.Load("PSX/DDR/Stars"),     title }

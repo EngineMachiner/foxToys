@@ -40,6 +40,6 @@ return Def.ActorFrame{
 
     motionSprite( "1 1x2.png", 0, 3 ),    motionSprite( "1 1x2.png", 1, 4.5 ),
 
-    LoadModule( "foxToys/PSX/DDR/Stars/default.lua", 3 ),
+    foxToys.Load( "PSX/DDR/Stars", 3 ),
     
 }
