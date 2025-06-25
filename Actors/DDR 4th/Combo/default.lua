@@ -54,7 +54,7 @@ return Def.ActorFrame {
 
         Def.BitmapText {
 
-            Font='1.ini',
+            Font = '1.ini',
 
             InitCommand=function(self) self:horizalign('HorizAlign_Right') end,
 
@@ -92,7 +92,7 @@ return Def.ActorFrame {
 
         tapLua.Sprite {
 
-            Texture='2.png',
+            Texture = tapLua.resolvePath("2.png"),
 
             OnCommand=function(self)
                 

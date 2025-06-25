@@ -1,11 +1,9 @@
 
-local scale = SCREEN_HEIGHT / 240
-
-local path = tapLua.resolvePath("1 2x4.png")
+local scale = SCREEN_HEIGHT / 240               local path = tapLua.resolvePath("1 2x4.png")
 
 local input = {
 
-    Path = path,          Zoom = scale,
+    Texture = path,          Zoom = scale,
 
     Sprite = {
         

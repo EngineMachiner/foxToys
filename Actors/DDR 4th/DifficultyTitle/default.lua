@@ -1,17 +1,21 @@
 
 local find = Astro.Table.find           local Vector = Astro.Vector
 
-local player = ...          local scale = SCREEN_HEIGHT / 720
+local playerKey = ...          local scale = SCREEN_HEIGHT / 720
+
+local player = "PlayerNumber_" .. playerKey
 
 return Def.ActorFrame {
 
     tapLua.Sprite {
 
-        Texture = '1 1x6.png',
+        Texture = tapLua.resolvePath("1 1x6.png"),
 
         OnCommand=function(self)
 
-            local p = SCREENMAN:GetTopScreen():GetChild( "Player" .. player )
+            local child = "Player" .. playerKey
+
+            local p = SCREENMAN:GetTopScreen():GetChild(child)
 
             if not p then self:GetParent():RemoveAllChildren() return end
 
@@ -19,14 +23,14 @@ return Def.ActorFrame {
             self:SetTextureFiltering(false):animate(false)
 
 
-            local zoom = scale * 4
+            local zoom = scale * 4          local x = playerKey == "P2" and -75 or 75
             
-            local pos = Vector( p:GetX(), SCREEN_HEIGHT ) - Vector( 75, 125 )
+            local pos = Vector( p:GetX(), SCREEN_HEIGHT ) - Vector( x, 125 )
 
             self:zoom(zoom):setPos(pos)
             
 
-            local steps = GAMESTATE:GetCurrentSteps( "PlayerNumber_" .. player )
+            local steps = GAMESTATE:GetCurrentSteps(player)
             
             local difficulty = steps:GetDifficulty()        local i = find( Difficulty, difficulty ).key
 

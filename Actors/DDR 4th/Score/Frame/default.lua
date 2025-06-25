@@ -1,7 +1,7 @@
 
 local Vector = Astro.Vector
 
-local scale = SCREEN_HEIGHT * 1.16 / 240
+local scale = SCREEN_HEIGHT * 1.5 / 240
 
 local path = tapLua.resolvePath("1.png")
 

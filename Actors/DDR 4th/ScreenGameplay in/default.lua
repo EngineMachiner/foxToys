@@ -23,7 +23,7 @@ local function motionSprite( state, sleep )
         
         t[#t+1] = tapLua.Sprite {
 
-            Texture = "1 1x2.png",
+            Texture = tapLua.resolvePath("1 1x2.png"),
 
             InitCommand=function(self) 
 

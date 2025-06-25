@@ -1,13 +1,10 @@
 
-local resolvePath = tapLua.resolvePath
+local resolvePath = tapLua.resolvePath          local scale = SCREEN_HEIGHT * 1.16 / 240
 
-local scale = SCREEN_HEIGHT * 1.16 / 240
+local playerKey = ...          local n = 9
 
+local h = 16            local function y() return h * 1.6 end
 
-local player = ...          local n = 9
-
-
-local h = 13            local function y() return h * 1.5 end
 
 local function onChildren(self) self:setsize( 375, h ):diffuse( Color.Black ) end
 
@@ -21,9 +18,11 @@ local shadow = Def.ActorFrame {
 }
 
 
+local player = "PlayerNumber_" .. playerKey
+
 local function score()
 
-    local stats = STATSMAN:GetCurStageStats():GetPlayerStageStats( "PlayerNumber_" .. player )
+    local stats = STATSMAN:GetCurStageStats():GetPlayerStageStats(player)
 
     return stats:GetScore()
 
@@ -31,7 +30,7 @@ end
 
 local function mask()
 
-    local size = Astro.Vector( 375, 52 )
+    local size = Astro.Vector( 375, 65 )
 
     return tapLua.Quad { InitCommand=function(self) self:setSizeVector(size) end }
 
@@ -71,6 +70,7 @@ local function sprite()
     return Def.Sprite { 
     
         Texture = resolvePath("1 (stretch).png"),
+        
         InitCommand=function(self) self:visible(false) end,
         StartCommand=function(self) self:visible(true) end
     

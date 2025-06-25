@@ -37,7 +37,11 @@ for i = 1, 3 do
 
     t[#t+1] = sprite() .. {
 
-        InitCommand=function(self) self:zoom(1.5):diffusealpha(alpha):blend('add') end,
+        InitCommand=function(self)
+            
+            local blend = Blend.Add             self:zoom(1.5):diffusealpha(alpha):blend(blend)
+        
+        end,
 
         MotionCommand=function(self)
 

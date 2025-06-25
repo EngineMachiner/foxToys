@@ -41,7 +41,7 @@ return Def.ActorFrame {
 
         HealthStateChangedMessageCommand=function(self, params)
 
-            local isDanger = params.HealthState:match("Danger")
+            local isDanger = params.HealthState == Health.Danger
 
             local command = isDanger and "Show" or "Hide"
 

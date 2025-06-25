@@ -76,11 +76,13 @@ local function stars(i)
 
                 tapLua.Sprite {
 
-                    Texture = '1 1x3.png',
+                    Texture = tapLua.resolvePath("1 1x3.png"),
 
                     InitCommand=function(self)
 
-                        self:SetTextureFiltering(false):blend('add')
+                        local blend = Blend.Add
+
+                        self:SetTextureFiltering(false):blend(blend)
 
                         self:animate(false):setstate( type - 1 ):zoom(scale)
 
