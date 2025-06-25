@@ -2,9 +2,9 @@
 local Vector = Astro.Vector
 
 
-local player = ...          local scale = SCREEN_HEIGHT * 1.3 / 240
+local player = ...          local scale = SCREEN_HEIGHT * 1.05 / 240
 
-local pos = Vector()        local angle = 0
+local pos = Vector( - 50, - SCREEN_CENTER_Y * 0.85 )        local angle = 0
 
 
 local function playerExists(params)

@@ -1,7 +1,7 @@
 
 local Vector = Astro.Vector
 
-local scale = SCREEN_HEIGHT * 1.5 / 240
+local scale = SCREEN_HEIGHT / 240               local scale2 = SCREEN_HEIGHT / 720
 
 local path = tapLua.resolvePath("1.png")
 
@@ -11,7 +11,7 @@ local args = {
 
     sprite = sprite,        CornerCrop = Vector( 0.625, 0.625 ),
 
-    CenterCrop = Vector( 0.375, 0.375 ),          Size = Vector( 365, 14 ),
+    CenterCrop = Vector( 0.375, 0.375 ),          Size = Vector( 355, 24 ) * scale2,
     
     Zoom = scale
 

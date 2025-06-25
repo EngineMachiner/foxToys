@@ -1,12 +1,12 @@
 
-local resolvePath = tapLua.resolvePath          local scale = SCREEN_HEIGHT * 1.16 / 240
+local resolvePath = tapLua.resolvePath          local scale = SCREEN_HEIGHT * 1.1 / 240
 
-local playerKey = ...          local n = 9
+local scale2 = SCREEN_HEIGHT / 720              local playerKey = ...          local n = 9
 
-local h = 16            local function y() return h * 1.6 end
+local h = 15 * scale2            local function y() return h * 1.5 end
 
 
-local function onChildren(self) self:setsize( 375, h ):diffuse( Color.Black ) end
+local function onChildren(self) self:setsize( 365 * scale2, h ):diffuse( Color.Black ) end
 
 local shadow = Def.ActorFrame {
 
@@ -30,7 +30,7 @@ end
 
 local function mask()
 
-    local size = Astro.Vector( 375, 65 )
+    local size = Astro.Vector( 375, 60 )
 
     return tapLua.Quad { InitCommand=function(self) self:setSizeVector(size) end }
 

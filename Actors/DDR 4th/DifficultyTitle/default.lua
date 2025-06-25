@@ -23,9 +23,9 @@ return Def.ActorFrame {
             self:SetTextureFiltering(false):animate(false)
 
 
-            local zoom = scale * 4          local x = playerKey == "P2" and -75 or 75
+            local zoom = scale * 3.5          local x = playerKey == "P2" and -75 or 75
             
-            local pos = Vector( p:GetX(), SCREEN_HEIGHT ) - Vector( x, 125 )
+            local pos = Vector( p:GetX(), SCREEN_HEIGHT ) - Vector( x, 125 ) * scale
 
             self:zoom(zoom):setPos(pos)
             

@@ -1,5 +1,5 @@
 
-local scale = SCREEN_HEIGHT / 240           local y = 100
+local scale = SCREEN_HEIGHT / 240           local y = 40
 
 local Stages = {
 

@@ -1,5 +1,5 @@
 
-local player = ...
+local player = ...              local scale = SCREEN_HEIGHT / 720
 
 return Def.ActorFrame {
 
@@ -12,7 +12,7 @@ return Def.ActorFrame {
 
         if not p then self:RemoveAllChildren() return end
 
-        self:xy( p:GetX(), SCREEN_HEIGHT - 55 )
+        self:xy( p:GetX(), SCREEN_HEIGHT - 66 * scale )
     
     end
 
