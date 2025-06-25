@@ -1,12 +1,12 @@
 
-local resolvePath = tapLua.resolvePath          local scale = SCREEN_HEIGHT * 1.1 / 240
+local resolvePath = tapLua.resolvePath          local scale = 720 / 240         scale = scale * 1.1
 
-local scale2 = SCREEN_HEIGHT / 720              local playerKey = ...          local n = 9
+local playerKey = ...          local n = 9
 
-local h = 15 * scale2            local function y() return h * 1.5 end
+local h = 17            local function y() return h * 0.25 + 17 end
 
 
-local function onChildren(self) self:setsize( 365 * scale2, h ):diffuse( Color.Black ) end
+local function onChildren(self) self:setsize( 365, h ):diffuse( Color.Black ) end
 
 local shadow = Def.ActorFrame {
 

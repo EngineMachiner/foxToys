@@ -12,7 +12,7 @@ return Def.ActorFrame {
 
         if not p then self:RemoveAllChildren() return end
 
-        self:xy( p:GetX(), SCREEN_HEIGHT - 66 * scale )
+        self:xy( p:GetX(), SCREEN_HEIGHT - 63 * scale ):zoom(scale)
     
     end
 

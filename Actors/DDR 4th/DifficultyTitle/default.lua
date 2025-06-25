@@ -3,13 +3,15 @@ local find = Astro.Table.find           local Vector = Astro.Vector
 
 local playerKey = ...          local scale = SCREEN_HEIGHT / 720
 
-local player = "PlayerNumber_" .. playerKey
+local player = "PlayerNumber_" .. playerKey         local isP2 = playerKey == "P2"
+
+local path = isP2 and '2' or '1'             path = path .. " 1x6.png"
 
 return Def.ActorFrame {
 
     tapLua.Sprite {
 
-        Texture = tapLua.resolvePath("1 1x6.png"),
+        Texture = tapLua.resolvePath(path),
 
         OnCommand=function(self)
 
@@ -23,7 +25,7 @@ return Def.ActorFrame {
             self:SetTextureFiltering(false):animate(false)
 
 
-            local zoom = scale * 3.5          local x = playerKey == "P2" and -75 or 75
+            local zoom = scale * 3.5          local x = isP2 and -75 or 75
             
             local pos = Vector( p:GetX(), SCREEN_HEIGHT ) - Vector( x, 125 ) * scale
 

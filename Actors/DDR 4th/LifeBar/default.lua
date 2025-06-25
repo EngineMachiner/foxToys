@@ -6,6 +6,8 @@ local player = ...          local scale = SCREEN_HEIGHT * 1.05 / 240
 
 local pos = Vector( - 50, - SCREEN_CENTER_Y * 0.85 )        local angle = 0
 
+local isP2 = player == "P2"             if isP2 then pos.x = - pos.x end
+
 
 local function playerExists(params)
 
@@ -46,7 +48,7 @@ local t = tapLua.ActorFrame {
 
     InitCommand=function(self)
 
-        self:zoom(scale):rotationz(angle)           if player == "P2" then self:rotationy(180) end
+        self:zoom(scale):rotationz(angle)           if isP2 then self:rotationy(180) end
         
     end,
 

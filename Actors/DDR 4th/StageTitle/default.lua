@@ -1,5 +1,5 @@
 
-local scale = SCREEN_HEIGHT / 240           local y = 40
+local scale = SCREEN_HEIGHT / 240           local y = 13
 
 local Stages = {
 
@@ -27,40 +27,46 @@ local function onChildren(self) self:SetTextureFiltering(false) end
 
 return Def.ActorFrame {
 
-    InitCommand=function(self)
-        
-        self:CenterX():zoom(scale):addy(y):RunCommandsOnChildren(onChildren) 
-    
-    end,
+    InitCommand=function(self) self:zoom(scale) end,
 
     Def.ActorFrame {
 
-        title() .. {
+        InitCommand=function(self)
+            
+            self:CenterX():addy(y):RunCommandsOnChildren(onChildren) 
+        
+        end,
 
-            OnCommand=function(self)
-                
-                local stage = STATSMAN:GetCurStageStats():GetStage()        local state = Stages[stage]
-                
-                if not state then self:GetParent():visible(false) return end
+        Def.ActorFrame {
 
-                self:setstate(state)
+            title() .. {
 
-            end
+                OnCommand=function(self)
+                    
+                    local stage = STATSMAN:GetCurStageStats():GetStage()        local state = Stages[stage]
+                    
+                    if not state then self:GetParent():visible(false) return end
+
+                    self:setstate(state)
+
+                end
+
+            },
+
+            title() .. {
+
+                InitCommand=function(self)
+
+                    local h = self:GetZoomedHeight()        self:y(h):setstate(6)
+
+                end
+
+            }
 
         },
 
-        title() .. {
+        Def.Sprite { Texture='2.png',       Condition = GAMESTATE:IsDemonstration() }
 
-            InitCommand=function(self)
-
-                local h = self:GetZoomedHeight()        self:y(h):setstate(6)
-
-            end
-
-        }
-
-    },
-
-    Def.Sprite { Texture='2.png',       Condition = GAMESTATE:IsDemonstration() }
+    }
 
 }
