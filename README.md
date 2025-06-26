@@ -22,4 +22,4 @@ Be aware that to successfully add the actors, it's important that you have a bas
 t[#t+1] = foxToys.Load( "Actors/DDR 4th/Combo", 'P1' ) -- Notice that not all scripts need arguments.
 ```
 
-- Some modules need to override theme elements to be shown and its transition times to show their animation completely. Be aware.
+- Some modules need to override theme elements to be shown and its transition times to show their animation completely.
