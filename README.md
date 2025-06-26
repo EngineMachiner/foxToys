@@ -17,7 +17,7 @@ Be aware that to successfully add the actors, it's important that you have a bas
 -- t is the ActorFrame.
 
 
--- Loading the combo actors would be...
+-- Loading the combo actor for player 1 would be...
 
 t[#t+1] = foxToys.Load( "Actors/DDR 4th/Combo", 'P1' ) -- Notice that not all scripts need arguments.
 ```
