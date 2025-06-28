@@ -17,7 +17,7 @@ local type = ...        local color = Color.Black
 
 local n = 16 -- Number of stars.
 
-local t = SCREEN_WIDTH / SCREEN_HEIGHT
+local t = GetScreenAspectRatio()
 
 local function pos( self, i )
 
