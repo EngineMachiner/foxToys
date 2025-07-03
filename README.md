@@ -26,7 +26,7 @@ Be aware that to successfully add the actors, it's important that you have a bas
 
 
   2. Clone this repository into the modules folder.
-  3. Load the actors using foxToys.Load() like this:
+  3. Load the actors:
   ```lua
   -- ScreenGameplay overlay.lua
 
