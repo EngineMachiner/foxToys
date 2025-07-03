@@ -35,4 +35,6 @@ Be aware that to successfully add the actors, it's important that you have a bas
 t[#t+1] = foxToys.Load( "DDR 4th/Combo", "P1" ) -- Notice that not all scripts need arguments.
 ```
 
+4. Copy any judgments.
+
 - Some actors animations might be cut short on some screen transitions. To fix that add sleep() to those transitions.
