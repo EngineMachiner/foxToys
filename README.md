@@ -8,11 +8,11 @@ foxToys are my modules, resources, scripts and custom actors that can be added t
 
 ## Installation
 
-1. Install [tapLua](https://github.com/EngineMachiner/tapLua).
+  1. Install [tapLua](https://github.com/EngineMachiner/tapLua).
 
-### Bash
+### Linux
 
-foxToys can be installed using the next bash commands in the game directory:
+  2. Run the next command in the game directory:
 
 ```console
 curl -s https://raw.githubusercontent.com/EngineMachiner/bitEye/refs/heads/master/foxToys.sh | bash
@@ -25,16 +25,16 @@ Or it can be installed manually:
 Be aware that to successfully add the actors, it's important that you have a basic understanding of **scripting and theme structure**.
 
 
-2. Clone this repository into the modules folder.
-3. Load the actors if needed using foxToys.Load() like this:
-```lua
--- ScreenGameplay overlay.lua
+  2. Clone this repository into the modules folder.
+  3. Load the actors using foxToys.Load() like this:
+  ```lua
+  -- ScreenGameplay overlay.lua
 
--- Considering t is the ActorFrame, loading the combo actor for player 1 would be...
+  -- Considering t is the ActorFrame, loading the combo actor for player 1 would be...
 
-t[#t+1] = foxToys.Load( "DDR 4th/Combo", "P1" ) -- Notice that not all scripts need arguments.
-```
+  t[#t+1] = foxToys.Load( "DDR 4th/Combo", "P1" ) -- Notice that not all scripts need arguments.
+  ```
 
-4. Copy any judgments.
+  4. Copy any judgments.
 
 - Some actors animations might be cut short on some screen transitions. To fix that add sleep() to those transitions.
