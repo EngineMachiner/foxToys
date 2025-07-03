@@ -16,7 +16,7 @@ SCRIPTS="$FALLBACK/Scripts";        FOXTOYS="$MODULES/foxToys"
 
 REPOSITORY="https://github.com/EngineMachiner/foxToys.git"
 
-#git clone "$REPOSITORY" "$FOXTOYS"
+git clone "$REPOSITORY" "$FOXTOYS"
 
 
 # Add to init script.
