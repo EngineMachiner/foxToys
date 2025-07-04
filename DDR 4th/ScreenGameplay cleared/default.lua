@@ -40,4 +40,4 @@ local title = Def.ActorFrame {
 
 }
 
-return Def.ActorFrame{ foxToys.Load( "Actors/DDR 4th/Stars", 2 ),     title }
+return Def.ActorFrame{ foxToys.Load( "DDR 4th/Stars", 2 ),     title }

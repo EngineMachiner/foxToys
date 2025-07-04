@@ -45,6 +45,6 @@ end
 
 return Def.ActorFrame {
 
-    motionSprite( 0, 3 ),    motionSprite( 1, 4.5 ),        foxToys.Load( "Actors/DDR 4th/Stars", 3 ),
+    motionSprite( 0, 3 ),    motionSprite( 1, 4.5 ),        foxToys.Load( "DDR 4th/Stars", 3 ),
     
 }

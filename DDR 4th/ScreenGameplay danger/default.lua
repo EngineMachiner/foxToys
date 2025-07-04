@@ -1,5 +1,5 @@
 
-local path = "Actors/DDR 4th/ScreenGameplay danger/"
+local path = "DDR 4th/ScreenGameplay danger/"
 
 return Def.ActorFrame {
 

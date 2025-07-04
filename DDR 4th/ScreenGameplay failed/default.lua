@@ -53,4 +53,4 @@ for i = 1, 3 do
 
 end
 
-return Def.ActorFrame{ foxToys.Load( "Actors/DDR 4th/Stars", 1 ),   t }
+return Def.ActorFrame{ foxToys.Load( "DDR 4th/Stars", 1 ),   t }

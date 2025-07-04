@@ -3,8 +3,8 @@ local player = ...              local scale = SCREEN_HEIGHT / 720
 
 return Def.ActorFrame {
 
-    foxToys.Load( "Actors/DDR 4th/Score/Frame" ),
-    foxToys.Load( "Actors/DDR 4th/Score/ScrollingNumbers", player ),
+    foxToys.Load( "DDR 4th/Score/Frame" ),
+    foxToys.Load( "DDR 4th/Score/ScrollingNumbers", player ),
 
     OnCommand=function(self)
 
