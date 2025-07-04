@@ -15,7 +15,7 @@ foxToys are my modules, resources, scripts and custom actors that can be added t
   2. Run the next command in the game directory:
 
   ```console
-  curl -s https://raw.githubusercontent.com/EngineMachiner/bitEye/refs/heads/master/foxToys.sh | bash
+  curl -s https://raw.githubusercontent.com/EngineMachiner/foxToys/refs/heads/master/foxToys.sh | bash
   ```
 
 ---
