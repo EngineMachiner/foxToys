@@ -14,9 +14,9 @@ foxToys are my modules, resources, scripts and custom actors that can be added t
 
   2. Run the next command in the game directory:
 
-```console
-curl -s https://raw.githubusercontent.com/EngineMachiner/bitEye/refs/heads/master/foxToys.sh | bash
-```
+  ```console
+  curl -s https://raw.githubusercontent.com/EngineMachiner/bitEye/refs/heads/master/foxToys.sh | bash
+  ```
 
 ---
 
@@ -38,3 +38,12 @@ Be aware that to successfully add the actors, it's important that you have a bas
   4. Copy any judgments.
 
 - Some actors animations might be cut short on some screen transitions. To fix that add sleep() to those transitions.
+
+---
+
+Remember, if you're having problems with the texture being white, not showing up 
+and you're using legacy builds, you should enable only OpenGL as renderer in 
+your `Preferences.ini` due to D3D not being able to render textures in these builds.
+```
+VideoRenderers=opengl
+```
