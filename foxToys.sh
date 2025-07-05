@@ -26,20 +26,6 @@ echo "Checking initialization script...";           TAPLUA="$SCRIPTS/tapLua.lua"
 echo "LoadModule(\"foxToys/foxToys.lua\")" | { grep -xFv -f "$TAPLUA" >> "$TAPLUA" || true; }
 
 
-# Move judgments if compatible.
-
-if [ -d "Appearance" ]; then
-
-    echo "Moving judgments...";        JUDGMENTS="$FOXTOYS/Judgments"
-
-    cp -r -i "$JUDGMENTS" "Appearance"
-
-fi
-
-
-echo "Done."
-
-
 echo "Now, add the actors you want in your theme using the loading function like this:
 
 foxToys.Load( \"DDR 4th/Combo\", \"P1\" )
