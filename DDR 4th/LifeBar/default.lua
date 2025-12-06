@@ -58,7 +58,7 @@ local t = tapLua.ActorFrame {
 
         if not p then self:RemoveAllChildren() return end
 
-        local pos = p:GetPos() + pos            self:setPos(pos)
+        local pos = self.GetPos(p) + pos            self:setPos(pos)
     
     end,
 
@@ -91,7 +91,7 @@ local t = tapLua.ActorFrame {
 
         Def.Sprite {
 
-            Texture = '1.png',
+            Texture = "1.png",
         
             InitCommand=function(self) 
                 
@@ -116,12 +116,11 @@ local t = tapLua.ActorFrame {
 
 }
 
-
 local function pill(i)
 
     return tapLua.Sprite {
 
-        Texture = tapLua.resolvePath("2 19x1.png"),
+        Texture = "2 19x1.png",
         
         InitCommand=function(self) self:animate(false):setstate(i) end
 

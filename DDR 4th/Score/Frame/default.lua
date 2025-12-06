@@ -1,7 +1,5 @@
 
-local Vector = Astro.Vector
-
-local path = tapLua.resolvePath("1.png")
+local Vector = Astro.Vector         local path = tapLua.resolvePath("1.png")
 
 local function sprite() return tapLua.Sprite { Texture = path } end
 

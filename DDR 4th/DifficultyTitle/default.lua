@@ -11,7 +11,7 @@ return Def.ActorFrame {
 
     tapLua.Sprite {
 
-        Texture = tapLua.resolvePath(path),
+        Texture = path,
 
         OnCommand=function(self)
 

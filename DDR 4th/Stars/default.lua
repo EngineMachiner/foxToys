@@ -76,7 +76,7 @@ local function stars(i)
 
                 tapLua.Sprite {
 
-                    Texture = tapLua.resolvePath("1 1x3.png"),
+                    Texture = "1 1x3.png",
 
                     InitCommand=function(self)
 
