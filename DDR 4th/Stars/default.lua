@@ -1,9 +1,7 @@
 
-local Vector = Astro.Vector
+local isOdd = Astro.Math.isOdd
 
-
-local scale = SCREEN_HEIGHT / 240
-
+local Vector = Astro.Vector         local scale = SCREEN_HEIGHT / 240
 
 local type = ...        local color = Color.Black
 
@@ -35,9 +33,7 @@ local pos = {
     
         local w, h = self:GetZoomedSize(true)           local offset = i - n * 0.5
 
-        if ( i + type - 1 ) % 2 == 0 then w = - w end
-
-        return Vector( w * 0.25, h ) * offset
+        if isOdd( i + type ) then w = - w end           return Vector( w * 0.25, h ) * offset
 
     end
 
