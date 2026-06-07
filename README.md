@@ -2,7 +2,7 @@
 
 # foxToys
 
-foxToys are my modules, resources, scripts and custom actors that can be added to **[OutFox](https://github.com/TeamRizu/OutFox)** like theming elements.
+foxToys is my modules, resources, scripts and custom actors that can be added to **[OutFox](https://github.com/TeamRizu/OutFox)** like theming elements.
 
 **[Video Example](https://youtu.be/XTOGAQQ7mzY)**
 
